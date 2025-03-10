@@ -1,5 +1,12 @@
 // next.config.js
 module.exports = {
+	webpack: (config, { isServer }) => {
+		// 서버 사이드에서만 환경 변수를 확인하려면
+		if (isServer) {
+			console.log('API_BASE_URL on build: ', process.env.BASE_URL);
+		}
+		return config;
+	},
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
