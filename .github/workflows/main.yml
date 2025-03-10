@@ -25,8 +25,12 @@ jobs:
 
       - name: Set environment variables
         run: |
-        echo "BASE_URL=${{ secrets.BASE_URL }}" >> $GITHUB_ENV
-        echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" >> $GITHUB_ENV
+        run: 
+          echo "BASE_URL=${{ secrets.BASE_URL }}"
+          echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}"
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
 
       # 2️⃣ Node.js 설정 (최신 LTS 버전 사용)
       - name: Setup Node.js
