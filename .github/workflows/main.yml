@@ -23,10 +23,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Debug environment variables
+      - name: Set environment variables
         run: |
-          echo "Environment Variables:"
-          printenv
+        echo "BASE_URL=${{ secrets.BASE_URL }}" >> $GITHUB_ENV
+        echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" >> $GITHUB_ENV
 
       # 2️⃣ Node.js 설정 (최신 LTS 버전 사용)
       - name: Setup Node.js
