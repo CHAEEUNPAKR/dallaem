@@ -30,6 +30,14 @@ jobs:
           node-version: 20
           cache: 'npm'
 
+      - name: Generate Environment Variables File
+        run: |
+          echo "BASE_URL=$BASE_URL" >> .env.development
+          echo "NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL" >> .env.development
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+
       # 3️⃣ 의존성 설치
       - name: Install dependencies
         run: npm ci
