@@ -26,8 +26,8 @@ jobs:
       - name: Set environment variables
         run: |
           touch .env.production
-          echo "BASE_URL=$BASE_URL" >> .env.production
-          echo "NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL" >> .env.production
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env.production
+          echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" >> .env.production
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
