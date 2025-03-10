@@ -23,6 +23,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Debug environment variables
+        run: |
+          echo "Environment Variables:"
+          printenv
+
       # 2️⃣ Node.js 설정 (최신 LTS 버전 사용)
       - name: Setup Node.js
         uses: actions/setup-node@v4
