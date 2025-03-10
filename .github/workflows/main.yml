@@ -23,6 +23,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # .env.production 파일 세팅
+      - name: Set up .env.production
+        run: |
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env.production
+          echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" >> .env.production
+
       # 2️⃣ Node.js 설정 (최신 LTS 버전 사용)
       - name: Setup Node.js
         uses: actions/setup-node@v4
