@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/constants';
 import { ReviewQueryType } from '@/types/reviewType';
 
 export const reviewService = {
@@ -18,7 +19,8 @@ export const reviewService = {
 			const offset = (currentPage - 1) * limit;
 
 			const res = await fetch(
-				`${process.env.BASE_URL}/reviews?${paramsValue}&limit=${limit}&offset=${offset}`,
+				// `${process.env.BASE_URL}/reviews?${paramsValue}&limit=${limit}&offset=${offset}`,
+				`${BASE_URL}/reviews?${paramsValue}&limit=${limit}&offset=${offset}`,
 			);
 
 			if (!res.ok) {
